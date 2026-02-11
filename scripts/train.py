@@ -8,19 +8,29 @@ Usage:
 
 from __future__ import annotations
 
+import logging
+
 import hydra
 from omegaconf import DictConfig
+
+from biometric.training.trainer import Trainer
+from biometric.utils import configure_deterministic, set_seed
+
+logger = logging.getLogger(__name__)
 
 
 @hydra.main(config_path="../configs", config_name="config", version_base=None)
 def main(cfg: DictConfig) -> None:
     """Run the training pipeline."""
-    # Phase 5 implementation will import and use:
-    # from biometric.training.trainer import Trainer
-    # from biometric.utils import set_seed, configure_deterministic
-    raise NotImplementedError(
-        "Training pipeline not yet implemented. See docs/ARCHITECTURE.md for the plan."
-    )
+    set_seed(cfg.seed)
+    configure_deterministic(True)
+
+    trainer = Trainer(cfg)
+    results = trainer.fit()
+
+    logger.info("Training complete.")
+    logger.info("Best val accuracy: %.4f", results["training"]["best_val_accuracy"])
+    logger.info("Test accuracy: %.4f", results["training"]["final_test_accuracy"])
 
 
 if __name__ == "__main__":
