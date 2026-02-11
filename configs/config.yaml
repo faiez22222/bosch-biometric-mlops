@@ -1,0 +1,10 @@
+defaults:
+  - data: default
+  - model: multimodal_cnn
+  - training: default
+  - infrastructure: azure
+  - _self_
+
+seed: 42
+experiment_name: multimodal_biometric
+output_dir: ./outputs/${experiment_name}/${now:%Y-%m-%d_%H-%M-%S}

@@ -1,0 +1,18 @@
+# Azure infrastructure configuration.
+# These values serve as documentation and configuration hints for
+# deploying to Azure ML. They are not consumed during local runs.
+infrastructure:
+  cloud_provider: azure
+  storage:
+    account_name: ${oc.env:AZURE_STORAGE_ACCOUNT,biometricdata}
+    container_name: ${oc.env:AZURE_CONTAINER,datasets}
+    data_path: iris-fingerprint/raw
+    preprocessed_path: iris-fingerprint/preprocessed
+  compute:
+    target: ${oc.env:AZURE_COMPUTE_TARGET,gpu-cluster}
+    vm_size: Standard_NC6s_v3
+    min_nodes: 0
+    max_nodes: 4
+  registry:
+    name: ${oc.env:AZURE_ML_REGISTRY,biometric-registry}
+    model_name: multimodal-biometric

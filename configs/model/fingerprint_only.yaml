@@ -1,0 +1,18 @@
+# Single-modality variant using only fingerprint data.
+model:
+  name: fingerprint_only
+  num_classes: 45
+
+  fingerprint_encoder:
+    in_channels: 1
+    base_filters: 32
+    num_blocks: 4
+    embedding_dim: 256
+    dropout: 0.3
+
+  iris_encoder: null
+
+  fusion:
+    strategy: single_modality
+    hidden_dim: 256
+    dropout: 0.5
