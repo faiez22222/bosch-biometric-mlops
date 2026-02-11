@@ -1,10 +1,4 @@
-"""CLI entry point for Ray-based parallel preprocessing.
 
-Usage:
-    python scripts/preprocess.py
-    python scripts/preprocess.py data.preprocessing.num_ray_workers=8
-    python scripts/preprocess.py data=fast_dev
-"""
 
 from __future__ import annotations
 

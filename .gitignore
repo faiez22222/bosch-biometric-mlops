@@ -41,6 +41,7 @@ wandb/
 
 # Hydra outputs
 multirun/
+IRIS and FINGERPRINT DATASET/
 
 # Coverage
 htmlcov/
