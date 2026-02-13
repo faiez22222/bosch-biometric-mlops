@@ -26,6 +26,8 @@ desktop.ini
 
 # Data (raw images should not be committed)
 data/
+!src/biometric/data/
+!src/biometric/data/*.py
 *.bmp
 *.BMP
 
